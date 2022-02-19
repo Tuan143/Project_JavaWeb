@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/IAccount.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/index.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/config/IDBConfig.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/entity/StatusAccount.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/impl/AccountDAO.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/impl/RoleAccountDAO.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/IRoleAccount.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/entity/Account.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/impl/StatusAccountDAO.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/css/login.css</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/login.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/context/MSSQLConnection.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/js/login.js</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/IStatusAccount.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/entity/RoleAccount.java</file>
+        </group>
+    </open-files>
+</project-private>
