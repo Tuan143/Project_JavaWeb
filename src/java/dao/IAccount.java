@@ -19,5 +19,5 @@ public interface IAccount {
  * @return 
  */
     
-    Account login(String email, String password) throws Exception;
+    Account login(String email, String password);
 }

@@ -4,6 +4,7 @@
     Author     : Tún ^^
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,11 +20,14 @@
                 <div class="user signinBx">
                     <div class="imgBx"><img src="https://beedesign.com.vn/wp-content/uploads/2020/08/Thiet-ke-logo-dien-thoai-apple-123-14.jpg" alt="" /></div>
                     <div class="formBx">
-                        <form action="" onsubmit="return false;">
+                        <form action="login" method="post">
                             <h2>Sign In</h2>
-                            <input type="text" name="" placeholder="Username" />
-                            <input type="password" name="" placeholder="Password" />
-                            <input type="submit" name="" value="Login" />
+                            <c:if test="${notify ne null}">
+                            <div class="alert-danger" role = "alert">${notify}</div>
+                            </c:if>
+                            <input type="email" name="txtEmail" placeholder="Email" />
+                            <input type="password" name="txtPassword" placeholder="Password" />
+                            <input type="submit" name="login" value="Login" />
                             <p class="signup">
                                 Don't have an account ?
                                 <a href="#" onclick="toggleForm();">Sign Up.</a>
@@ -33,7 +37,7 @@
                 </div>
                 <div class="user signupBx">
                     <div class="formBx">
-                        <form action="" onsubmit="return false;">
+                        <form action="" >
                             <h2>Create an account</h2>
                             <input type="text" name="" placeholder="Username" />
                             <input type="email" name="" placeholder="Email Address" />

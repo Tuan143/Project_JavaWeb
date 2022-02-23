@@ -20,7 +20,7 @@ import java.sql.SQLException;
 public class AccountDAO extends MSSQLConnection implements IAccount {
 
     @Override
-    public Account login(String email, String password) throws SQLException{
+    public Account login(String email, String password){
          Connection connection = null;
          PreparedStatement ps = null;
          ResultSet rs = null;
@@ -40,12 +40,12 @@ public class AccountDAO extends MSSQLConnection implements IAccount {
                 account.setAddress(rs.getString("address"));
                 account.setRoleId(rs.getInt("role_id"));
                 account.setStatusId(rs.getInt("status_id"));
-                if(password.equals(account.getPassword())){
+                if(password.equals(account.getPassword().trim())){
                     return account;
                 }
             }
         } catch (Exception e) {
-            throw e;
+            e.printStackTrace();
         }finally{
             closeResultSet(rs);
             closePreparedStatement(ps);

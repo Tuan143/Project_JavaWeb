@@ -12,6 +12,6 @@
         <title>Trang chủ</title>
     </head>
     <body>
-        
+        <h1>${notify}</h1>
     </body>
 </html>
