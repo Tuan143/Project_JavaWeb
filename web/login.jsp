@@ -3,7 +3,7 @@
     Created on : Feb 19, 2022, 4:00:02 PM
     Author     : Tún ^^
 --%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
                         <form action="login" method="post">
                             <h2>Sign In</h2>
                             <c:if test="${notify ne null}">
-                            <div class="alert-danger" role = "alert">${notify}</div>
+                                <div class="alert-danger" role = "alert">${notify}</div>
                             </c:if>
                             <input type="email" name="txtEmail" placeholder="Email" />
                             <input type="password" name="txtPassword" placeholder="Password" />

@@ -11,6 +11,8 @@ import dao.impl.AccountDAO;
 import entity.Account;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Tún ^^
  */
-public class LoginController extends HttpServlet implements IMessage{
+public class LoginController extends HttpServlet implements IMessage {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +34,7 @@ public class LoginController extends HttpServlet implements IMessage{
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -74,16 +76,24 @@ public class LoginController extends HttpServlet implements IMessage{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("txtEmail");
-        String password = request.getParameter("txtPassword");
-        IAccount iAccount = new AccountDAO();
-        Account accountLogin = iAccount.login(email, password);
-        if(accountLogin == null){
-            request.setAttribute("notify", IMessage.LOGIN_FAIL);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }else{
-            request.setAttribute("notify", IMessage.LOGIN_SUCCESS);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+        try {
+            String email = request.getParameter("txtEmail");
+            String password = request.getParameter("txtPassword");
+            IAccount iAccount = new AccountDAO();
+            Account accountLogin = iAccount.login(email, password);
+            if (accountLogin == null) {
+                request.setAttribute("notify", IMessage.LOGIN_FAIL);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
+            } else {
+                if (accountLogin.getRoleId() == 1) {
+                    request.setAttribute("notify", IMessage.LOGIN_SUCCESS_ADMIN);
+                } else {
+                    request.setAttribute("notify", IMessage.LOGIN_SUCCESS_USER);
+                }
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

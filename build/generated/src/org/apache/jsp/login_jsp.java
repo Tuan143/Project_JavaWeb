@@ -134,7 +134,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     if (_jspx_eval_c_if_0 != javax.servlet.jsp.tagext.Tag.SKIP_BODY) {
       do {
         out.write("\n");
-        out.write("                            <div class=\"alert-danger\" role = \"alert\">");
+        out.write("                                <div class=\"alert-danger\" role = \"alert\">");
         out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${notify}", java.lang.String.class, (PageContext)_jspx_page_context, null));
         out.write("</div>\n");
         out.write("                            ");

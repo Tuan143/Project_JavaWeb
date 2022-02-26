@@ -14,6 +14,8 @@ public interface IMessage {
 
     public static final String LOGIN_FAIL = "Wrong email or password";
     public static final String LOGIN_SUCCESS = "Login successfully";
+    public static final String LOGIN_SUCCESS_USER = "Login successfully with user account";
+    public static final String LOGIN_SUCCESS_ADMIN = "Login successfully with admin account";
 
     //Register
     public static final String REGISTER_FAIL = "Email alredy exists, please use another email";
