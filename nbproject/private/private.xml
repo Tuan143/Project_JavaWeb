@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/config/IDBConfig.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/css/login.css</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/css/product.css</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/index.jsp</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Header.jsp</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/config/IMessage.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/context/MSSQLConnection.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Footer.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/login.jsp</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Product.jsp</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
