@@ -7,24 +7,31 @@ and open the template in the editor.
     Created on : Feb 28, 2022, 9:15:20 PM
     Author     : Tún ^^
 */
-.left-slide{
-    border-right: 1px solid #ddd;
-    height: 400px;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-
 .category-style {
     list-style-type:none;
     padding-left: 0px;
 }
 .category-style li{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: center;
-
+    padding: 5px 20px 5px 20px;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+
+li:hover {
+    border-radius: 20px;
+    background-color: gray;
+}
+
 .category-style li a{
     text-decoration: none;
     color: black;
- }
+}
 

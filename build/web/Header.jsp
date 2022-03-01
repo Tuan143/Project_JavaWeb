@@ -34,6 +34,7 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>
+            <a href="login.jsp" class="btn btn-secondary">Đăng Nhập</a>
         </nav>
 
         <div class="container">

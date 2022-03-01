@@ -19,34 +19,72 @@
     <body>
         <jsp:include page="Header.jsp"></jsp:include>
             <div class="container">
-                <div class="row">
-                    <div class="col-md-3 left-slide">
-                        <h4>Phân loại sản phẩm</h4>
-                        <hr>
-                        <ul class="category-style">
-                            <li>
-                                <a href="#">Apple</a>
-                            </li>
-                            <li>
-                                <a href="#">Samsung</a>
-                            </li>
-                            <li>
-                                <a href="#">Xiaomi</a>
-                            </li>
-                            <li>
-                                <a href="#">Oppo</a>
-                            </li>
-                            <li>
-                                <a href="#">Realme</a>
-                            </li>
-                            <li>
-                                <a href="#">Nokia</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-9">
-                        <h4>Danh sách sản phẩm</h4>
-                        <hr>
+                <div class="left-slide">
+                    <h4 style="margin-top: 10px">Phân loại</h4>
+                    <ul class="category-style">
+                        <li>
+                            <a href="#" data-href="">Apple</a>
+                        </li>
+                        <li>
+                            <a href="#">Samsung</a>
+                        </li>
+                        <li>
+                            <a href="#">Xiaomi</a>
+                        </li>
+                        <li>
+                            <a href="#">Oppo</a>
+                        </li>
+                        <li>
+                            <a href="#">Realme</a>
+                        </li>
+                        <li>
+                            <a href="#">Nokia</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Danh sách sản phẩm</h4>
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="card">
+                                <img class="card-img-top" src="image/Iphone/iphone_13-_pro-5_4.jpg" alt="Iphone13_ProMax">
+                                <div class="card-body">
+                                    <h4 class="card-title">Iphone13_ProMax</h4>
+                                    <p class="card-text">Giá 30.000.000 VND</p>
+                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <img class="card-img-top" src="image/Iphone/iphone_13-_pro-1_2.webp" alt="Iphone13_Pro">
+                                <div class="card-body">
+                                    <h4 class="card-title">Iphone13_Pro</h4>
+                                    <p class="card-text">Giá 25.000.000 VND</p>
+                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <img class="card-img-top" src="image/Iphone/iphone_12_pro_max_blue.webp" alt="Iphone13">
+                                <div class="card-body">
+                                    <h4 class="card-title">Iphone13</h4>
+                                    <p class="card-text">Giá 20.000.000 VND</p>
+                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <img class="card-img-top" src="image/Iphone/iphone_12_mini_purple.webp" alt="Iphone13_Mini">
+                                <div class="card-body">
+                                    <h4 class="card-title">Iphone13_Mini</h4>
+                                    <p class="card-text">Giá 15.000.000 VND</p>
+                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
