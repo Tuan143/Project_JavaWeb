@@ -17,6 +17,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -81,6 +82,7 @@ public class LoginController extends HttpServlet implements IMessage {
             String password = request.getParameter("txtPassword");
             IAccount iAccount = new AccountDAO();
             Account accountLogin = iAccount.login(email, password);
+            HttpSession session = request.getSession();
             if (accountLogin == null) {
                 request.setAttribute("notify", IMessage.LOGIN_FAIL);
                 request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -90,7 +92,9 @@ public class LoginController extends HttpServlet implements IMessage {
                 } else {
                     request.setAttribute("notify", IMessage.LOGIN_SUCCESS_USER);
                 }
+                session.setAttribute("accountLogin", accountLogin);
                 request.getRequestDispatcher("index.jsp").forward(request, response);
+                session.setMaxInactiveInterval(300);
             }
         } catch (Exception ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

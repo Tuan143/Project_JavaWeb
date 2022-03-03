@@ -4,6 +4,7 @@
     Author     : Tún ^^
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,7 +35,22 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>
-            <a href="login.jsp" class="btn btn-secondary">Đăng Nhập</a>
+            <c:if test="${accountLogin == null}">
+                <a href="login.jsp" class="btn btn-secondary ml-2 mr-2">Đăng Nhập</a>
+            </c:if>
+            <c:if test="${accountLogin != null}">
+                <div class="nav-item dropdown pl-2" >
+                    <a class="dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white">
+                        <c:out  value="${accountLogin.userName}"/>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="profile?info=true">Thông tin cá nhân</a>                                
+                        <a class="dropdown-item" href="changePassword.jsp">Đổi mật khẩu</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.jsp">Đăng xuất</a>
+                    </div>
+                </div> 
+            </c:if>
         </nav>
 
         <div class="container">
