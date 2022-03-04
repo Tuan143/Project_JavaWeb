@@ -4,6 +4,7 @@
     Author     : Tún ^^
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -45,49 +46,21 @@
                 <div>
                     <h4>Danh sách sản phẩm</h4>
                     <div class="row">
+                    <c:forEach items="${listProduct}" var="product">
                         <div class="col-3">
                             <div class="card">
-                                <img class="card-img-top" src="image/Iphone/iphone_13-_pro-5_4.jpg" alt="Iphone13_ProMax">
+                                <img class="card-img-top" src="${product.imageLink}" alt="Iphone13_ProMax">
                                 <div class="card-body">
-                                    <h4 class="card-title">Iphone13_ProMax</h4>
-                                    <p class="card-text">Giá 30.000.000 VND</p>
+                                    <h4 class="card-title">${product.name}</h4>
+                                    <p class="card-text">${product.price}</p>
                                     <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <img class="card-img-top" src="image/Iphone/iphone_13-_pro-1_2.webp" alt="Iphone13_Pro">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone13_Pro</h4>
-                                    <p class="card-text">Giá 25.000.000 VND</p>
-                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <img class="card-img-top" src="image/Iphone/iphone_12_pro_max_blue.webp" alt="Iphone13">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone13</h4>
-                                    <p class="card-text">Giá 20.000.000 VND</p>
-                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="card">
-                                <img class="card-img-top" src="image/Iphone/iphone_12_mini_purple.webp" alt="Iphone13_Mini">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone13_Mini</h4>
-                                    <p class="card-text">Giá 15.000.000 VND</p>
-                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </c:forEach>
                 </div>
             </div>
+        </div>
         <jsp:include page="Footer.jsp"></jsp:include>
     </body>
 </html>

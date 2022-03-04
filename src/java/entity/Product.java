@@ -18,13 +18,12 @@ public class Product {
     private String status;
     private String imageLink;
     private String description;
-    private boolean sale;
     private String note;
 
     public Product() {
     }
 
-    public Product(int id, String name, int price, int quantity, int categoryId, String status, String imageLink, String description, boolean sale, String note) {
+    public Product(int id, String name, int price, int quantity, int categoryId, String status, String imageLink, String description, String note) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -33,7 +32,6 @@ public class Product {
         this.status = status;
         this.imageLink = imageLink;
         this.description = description;
-        this.sale = sale;
         this.note = note;
     }
 
@@ -99,14 +97,6 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public boolean isSale() {
-        return sale;
-    }
-
-    public void setSale(boolean sale) {
-        this.sale = sale;
     }
 
     public String getNote() {

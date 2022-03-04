@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="Product.jsp">Product</a>
+                        <a class="nav-link" href="product">Product</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>

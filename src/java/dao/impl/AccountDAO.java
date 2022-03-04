@@ -20,10 +20,13 @@ import java.sql.SQLException;
 public class AccountDAO extends MSSQLConnection implements IAccount {
 
     @Override
-    public Account login(String email, String password) throws Exception{
-         Connection connection = null;
-         PreparedStatement ps = null;
-         ResultSet rs = null;
+    public Account login(String email, String password) throws Exception {
+        //Khai báo biến
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        //Tạo câu lệnh SQL
         String sql = "SELECT * FROM Account WHERE email = ?";
         try {
             connection = MSSQLConnection.getConnection();
@@ -40,13 +43,13 @@ public class AccountDAO extends MSSQLConnection implements IAccount {
                 account.setAddress(rs.getString("address"));
                 account.setRoleId(rs.getInt("role_id"));
                 account.setStatusId(rs.getInt("status_id"));
-                if(password.equals(account.getPassword().trim())){
-                    return account; 
+                if (password.equals(account.getPassword().trim())) {
+                    return account;
                 }
             }
         } catch (Exception e) {
             throw e;
-        }finally{
+        } finally {
             closeResultSet(rs);
             closePreparedStatement(ps);
             closeConnection(connection);
