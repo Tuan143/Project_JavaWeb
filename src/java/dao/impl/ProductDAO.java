@@ -19,6 +19,11 @@ import java.util.ArrayList;
  */
 public class ProductDAO extends MSSQLConnection implements IProduct {
 
+    public static void main(String[] args) {
+        ProductDAO aO = new ProductDAO();
+        aO.getAllProductAndPaging(1, 4);
+    }
+
     @Override
     public ArrayList<Product> getAllProductAndPaging(int pageIndex, int pageSize) {
         // Khai báo biến
@@ -45,8 +50,10 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
             ps.setInt(4, pageSize);
             rs = ps.executeQuery();
             while (rs.next()) {
+
                 Product product = new Product();
-                product.setId(rs.getInt("Id"));
+
+                product.setId(rs.getInt("id"));
                 product.setName(rs.getString("Name"));
                 product.setPrice(rs.getInt("Price"));
                 product.setQuantity(rs.getInt("Quantity"));
@@ -55,9 +62,9 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
                 product.setImageLink(rs.getString("ImageLink"));
                 product.setDescription(rs.getString("Description"));
                 product.setNote(rs.getString("Note"));
-                
+
+                listProduct.add(product);
             }
-            return listProduct;
         } catch (Exception e) {
             //throw e;
         } finally {

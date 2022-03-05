@@ -5,10 +5,15 @@
         <group>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Header.jsp</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/config/IDBConfig.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/controller/ProductController.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/context/MSSQLConnection.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/controller/test.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/test.jsp</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Product.jsp</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/impl/ProductDAO.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/entity/Product.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/controller/LoginController.java</file>
         </group>
     </open-files>
 </project-private>
