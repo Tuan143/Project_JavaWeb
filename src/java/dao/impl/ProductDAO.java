@@ -19,11 +19,6 @@ import java.util.ArrayList;
  */
 public class ProductDAO extends MSSQLConnection implements IProduct {
 
-    public static void main(String[] args) {
-        ProductDAO aO = new ProductDAO();
-        aO.getAllProductAndPaging(1, 4);
-    }
-
     @Override
     public ArrayList<Product> getAllProductAndPaging(int pageIndex, int pageSize) {
         // Khai báo biến
@@ -35,12 +30,12 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
         ArrayList<Product> listProduct = new ArrayList<>();
 
         //Tạo câu lệnh SQL
-        String sql = "SELECT * FROM (\n"
-                + "SELECT ROW_NUMBER() over (order by id ASC) as rn, *\n"
-                + "from Product\n"
-                + ") as x/n"
-                + "WHERE rn between (?-1)*? + 1"
-                + "AND ? * ?";
+        String sql = "select * from (\n"
+                + "    select ROW_NUMBER() over (order by id ASC) as rn, *\n"
+                + "    from Product\n"
+                + ") as x\n"
+                + "where rn between (?-1)*? +1 "
+                + "and ? * ?";
         try {
             connection = getConnection();
             ps = connection.prepareStatement(sql);
@@ -73,6 +68,32 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
             closeConnection(connection);
         }
         return listProduct;
+    }
+
+    @Override
+    public int countTotalProduct() {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT COUNT(id) FROM Product";
+        int count = 0;
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1); // count++
+            }
+            return count;
+        } catch (Exception e) {
+            // throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(connection);
+        }
+        return count;
     }
 
 }

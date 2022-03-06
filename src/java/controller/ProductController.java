@@ -36,10 +36,14 @@ public class ProductController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             IProduct iProduct = new ProductDAO();
-
+            
+            
             int pageIndex = 1;
             int pageSize = 4;
-
+            int totalProduct = iProduct.countTotalProduct();
+            int maxPage = totalProduct / pageSize + (totalProduct % pageSize > 0 ? 1 : 0);
+            
+            
             ArrayList<Product> listProduct = iProduct.getAllProductAndPaging(pageIndex, pageSize);
             request.setAttribute("listProduct", listProduct);
             request.getRequestDispatcher("Product.jsp").forward(request, response);

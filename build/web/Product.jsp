@@ -51,13 +51,13 @@
                 <div>
                     <h4>Danh sách sản phẩm</h4>
                     <div class="row">
-                    <c:forEach items="listProduct" var="product">
+                    <c:forEach items="${listProduct}" var="product">
                         <div class="col-3">
-                            <div class="card">
+                            <div class="card" >
                                 <img class="card-img-top" src="${product.imageLink}" alt="Iphone13_ProMax">
-                                <div class="card-body">
-                                    <h4 class="card-title">${product.name}</h4>
-                                    <p class="card-text"${product.price}</p>
+                                <div class="card-body" style="height: 200px">
+                                    <p class="card-title">${product.name}</p>
+                                    <p class="card-text" >${product.price}</p>
                                     <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
                                 </div>
                             </div>
@@ -67,10 +67,10 @@
             </div>
             <!--Phan trang-->
             <div class="container">
-                <ul class="pagination">
+                <ul class="pagination mt-3" style="justify-content: center">
                     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item"><a class="page-link" href="#">Next</a></li>
                 </ul>

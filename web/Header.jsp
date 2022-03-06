@@ -21,10 +21,10 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="test">Product</a>
+                        <a class="nav-link" href="product">Product</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="product">Link</a>
+                        <a class="nav-link" href="#">Link</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>

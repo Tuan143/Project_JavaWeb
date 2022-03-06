@@ -19,5 +19,12 @@ public interface IProduct {
     * PageSize: là số sản phẩm được hiển thị trên 1 trang
     */
     ArrayList<Product> getAllProductAndPaging(int pageIndex, int pageSize);
+    
+    
+    /**
+     * Get tất cả product trong database và trả về số lượng hiện có
+     * @return 
+     */
+    int countTotalProduct();
 
 }
