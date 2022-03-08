@@ -23,6 +23,7 @@ and open the template in the editor.
     border-radius: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 10px;
 }
 
 li:hover {
@@ -33,5 +34,12 @@ li:hover {
 .category-style li a{
     text-decoration: none;
     color: black;
+}
+.d-none{
+    display: none;
+}
+
+.e-none{
+   pointer-events: none; 
 }
 

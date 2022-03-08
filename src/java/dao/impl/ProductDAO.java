@@ -96,4 +96,82 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
         return count;
     }
 
+    @Override
+    public ArrayList<Product> getAllProductByCategoryId(int CategoryId, int pageIndex, int pageSize) {
+        // Khai báo biến
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        //Tạo 1 Arraylist Prodyct để lưu kết quả trả về
+        ArrayList<Product> listProduct = new ArrayList<>();
+
+        //Tạo câu lệnh SQL
+        String sql = "select * from (\n"
+                + "    select ROW_NUMBER() over (order by id ASC) as rn, *\n"
+                + "    from Product WHERE CategoryId = ?\n"
+                + ") as x\n"
+                + "where rn between (?-1)*? +1 "
+                + "and ? * ?";
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, pageIndex);
+            ps.setInt(2, pageIndex);
+            ps.setInt(3, pageSize);
+            ps.setInt(4, pageIndex);
+            ps.setInt(5, pageSize);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                Product product = new Product();
+
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("Name"));
+                product.setPrice(rs.getInt("Price"));
+                product.setQuantity(rs.getInt("Quantity"));
+                product.setCategoryId(rs.getInt("CategoryId"));
+                product.setStatus(rs.getString("Status"));
+                product.setImageLink(rs.getString("ImageLink"));
+                product.setDescription(rs.getString("Description"));
+                product.setNote(rs.getString("Note"));
+
+                listProduct.add(product);
+            }
+        } catch (Exception e) {
+            //throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(connection);
+        }
+        return listProduct;
+    }
+
+    @Override
+    public int countTotalProductByCategoryId(int categoryId) {
+                Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT COUNT(id) FROM Product WHERE CategoryId = ?";
+        int count = 0;
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, categoryId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1); // count++
+            }
+            return count;
+        } catch (Exception e) {
+            // throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(connection);
+        }
+        return count;
+    }
 }

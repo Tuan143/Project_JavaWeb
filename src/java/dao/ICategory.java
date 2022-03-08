@@ -5,10 +5,13 @@
  */
 package dao;
 
+import entity.Category;
+import java.util.ArrayList;
+
 /**
  *
  * @author Tún ^^
  */
 public interface ICategory {
-    
+    ArrayList<Category> getAllCategory();
 }

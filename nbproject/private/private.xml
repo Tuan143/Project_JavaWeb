@@ -4,17 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/css/product.css</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Header.jsp</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/config/IDBConfig.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/index.jsp</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/IProduct.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/controller/ProductController.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/context/MSSQLConnection.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/entity/Category.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/controller/CategoryController.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/css/login.css</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Header.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/IProduct.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/error.jsp</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/ICategory.java</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/web/Product.jsp</file>
             <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/impl/ProductDAO.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/entity/Product.java</file>
-            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/controller/LoginController.java</file>
+            <file>file:/C:/Users/ADMIN/Documents/NetBeansProjects/Project_PhoneShop/src/java/dao/impl/CategoryDAO.java</file>
         </group>
     </open-files>
 </project-private>
