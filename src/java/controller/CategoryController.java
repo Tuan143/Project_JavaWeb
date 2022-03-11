@@ -5,8 +5,15 @@
  */
 package controller;
 
+import dao.ICategory;
+import dao.IProduct;
+import dao.impl.CategoryDAO;
+import dao.impl.ProductDAO;
+import entity.Category;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,14 +38,48 @@ public class CategoryController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+
+            IProduct iProduct = new ProductDAO();
+            ICategory iCategory = new CategoryDAO();
+
+            String pageId = request.getParameter("pageIndex");
             String id = request.getParameter("categoryId");
+
             int categoryId = 0;
             try {
                 categoryId = Integer.parseInt(id);
             } catch (Exception e) {
                 categoryId = 0;
             }
-            
+            int pageIndex = 1;
+
+            try {
+                pageIndex = Integer.parseInt(pageId);
+            } catch (Exception e) {
+                request.setAttribute("message", "Invalid");
+                pageIndex = 1;
+            }
+
+            int pageSize = 4;
+            int totalProduct = iProduct.countTotalProductByCategoryId(categoryId);
+            int maxPage = totalProduct / pageSize + (totalProduct % pageSize > 0 ? 1 : 0); // (nếu lớn hơn 0 thì trả về 1 nếu nhỏ hơn 0 thì trả về 0)
+
+            int nextPage = pageIndex + 1;
+            int backPage = pageIndex - 1;
+
+            ArrayList<Category> listCategory = iCategory.getAllCategory();
+
+            ArrayList<Product> listProduct = iProduct.getAllProductByCategoryId(categoryId, pageIndex, pageSize);
+
+            request.setAttribute("pageIndex", pageIndex); // truyền lên jsp để biết trang nào cần active và biết nó đang ở page số mấy
+            request.setAttribute("maxPage", maxPage); // Để biết có tổng là bao nhiêu trang
+            request.setAttribute("nextPage", nextPage); // Để biết khi nào xuất hiện next
+            request.setAttribute("backPage", backPage); // Để biết khi nào xuất hiện back
+            request.setAttribute("listCategory", listCategory);
+            request.setAttribute("listProduct", listProduct); // truyền 1 list theo pageIndex và biết nó đang ở page số mấy
+
+            request.getRequestDispatcher("Product.jsp").forward(request, response);
+
         }
     }
 
