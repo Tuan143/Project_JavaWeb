@@ -46,7 +46,7 @@ public class ProductController extends HttpServlet {
             try {
                 pageIndex = Integer.parseInt(pageId);
             } catch (Exception e) {
-                request.setAttribute("message", "Invalid");
+                //request.setAttribute("message", "Invalid");
                 pageIndex = 1;
             }
             
@@ -64,6 +64,8 @@ public class ProductController extends HttpServlet {
             request.setAttribute("maxPage", maxPage); // Để biết có tổng là bao nhiêu trang
             request.setAttribute("nextPage", nextPage); // Để biết khi nào xuất hiện next
             request.setAttribute("backPage", backPage); // Để biết khi nào xuất hiện back
+            request.setAttribute("categoryId", 0);
+            
             request.setAttribute("listCategory", listCategory);
             request.setAttribute("listProduct", listProduct); // truyền 1 list theo pageIndex và biết nó đang ở page số mấy
 

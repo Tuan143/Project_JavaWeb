@@ -31,6 +31,11 @@ li:hover {
     background-color: gray;
 }
 
+.active-category{
+    background-color: gray;
+    border-radius: 20px;
+}
+
 .category-style li a{
     text-decoration: none;
     color: black;

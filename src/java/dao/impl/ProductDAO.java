@@ -6,11 +6,16 @@
 package dao.impl;
 
 import context.MSSQLConnection;
+import static context.MSSQLConnection.closeConnection;
+import static context.MSSQLConnection.closePreparedStatement;
+import static context.MSSQLConnection.closeResultSet;
+import static context.MSSQLConnection.getConnection;
 import dao.IProduct;
 import entity.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -116,7 +121,7 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
         try {
             connection = getConnection();
             ps = connection.prepareStatement(sql);
-            ps.setInt(1, pageIndex);
+            ps.setInt(1, CategoryId);
             ps.setInt(2, pageIndex);
             ps.setInt(3, pageSize);
             ps.setInt(4, pageIndex);
@@ -150,7 +155,7 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
 
     @Override
     public int countTotalProductByCategoryId(int categoryId) {
-                Connection connection = null;
+        Connection connection = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -164,7 +169,6 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
             while (rs.next()) {
                 count = rs.getInt(1); // count++
             }
-            return count;
         } catch (Exception e) {
             // throw e;
         } finally {
