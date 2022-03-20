@@ -24,7 +24,7 @@
                 <div class="left-slide">
                     <h4 style="margin-top: 10px">Phân loại</h4>
                     <ul class="category-style">
-                        <li class="${categoryId > 0 ? "active-category" : ""}">
+                        <li class="${categoryId > 0 ? "" : "active-category"}">
                         <a href="product">Sản Phẩm Nổi Bật</a>
                     </li>
                     <c:forEach items="${listCategory}" var="category">
@@ -59,14 +59,19 @@
 
                         <!--Button back page-->
                         <li class="page-item ${pageIndex == 1 ? "d-none" : ""}">
-                            <a class="page-link" href="product?pageIndex=${backPage}"><--</a>
+                            <c:if test="${categoryId > 0}">
+                                <a class="page-link active" href="category?pageIndex=${backPage}&categoryId=${categoryId}"><--</a>
+                            </c:if>
+                            <c:if test="${categoryId == 0}">
+                                <a class="page-link" href="product?pageIndex=${backPage}"><--</a>
+                            </c:if>
                         </li>
 
                         <!--page number-->
                         <c:forEach begin="1" end="${maxPage}" step="1" var="pageNumber">
                             <li class="page-item ${pageNumber == pageIndex ? "active e-none" : ""}">
                                 <c:if test="${categoryId > 0}">
-                                    <a class="page-link active" href="category?categoryId=${categoryId}&pageIndex=${pageNumber}">${pageNumber}</a>
+                                    <a class="page-link active" href="category?pageIndex=${pageNumber}&categoryId=${categoryId}">${pageNumber}</a>
                                 </c:if>
                                 <c:if test="${categoryId == 0}">
                                     <a class="page-link active" href="product?pageIndex=${pageNumber}">${pageNumber}</a>
@@ -76,12 +81,14 @@
 
                         <!--Button next page-->
                         <li class="page-item ${pageIndex == maxPage ? "d-none" : "" }">
-                            <a class="page-link" href="product?pageIndex=${nextPage}">--></a>
+                            <c:if test="${categoryId > 0}">
+                                <a class="page-link active" href="category?pageIndex=${nextPage}&categoryId=${categoryId}">--></a>
+                            </c:if>
+                            <c:if test="${categoryId == 0}">
+                                <a class="page-link" href="product?pageIndex=${nextPage}">--></a>
+                            </c:if>
                         </li>
-
-
                     </ul>
-
                 </div>
             </c:if>
         </div>
