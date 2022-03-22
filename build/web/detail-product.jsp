@@ -19,6 +19,8 @@
         <title>Chi tiết sản phẩm</title>
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v13.0" nonce="8vk7XYNM"></script>
         <jsp:include page="Header.jsp"></jsp:include>
 
             <div class="container">
@@ -52,20 +54,66 @@
                             <h3>Tên sản phẩm</h3>
                             <p>Giá thị trường</p>
                             <div class="row">
-                                <div class="col-5">
-                                    <input>
+                                <div class="col-4">
+                                    <div class="input-group mb-4" style="width: 200px;">
+                                        <span class="input-group-btn ">
+                                            <button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
+                                                <i class="fas fa-minus"></i>
+                                            </button>
+                                        </span>
+                                        <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100" required>
+                                        <input type="text" name="productId" value="${product.id}" hidden>
+                                    <span class="input-group-btn ml-1">
+                                        <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </span>
                                 </div>
-                                
-                                <div class="col-7">
-                                    <button class="btn btn-sm btn-warning">Thêm vào giỏ hàng</button>
-                                </div>
-                                
                             </div>
+
+                            <div class="col-8">
+                                <button class="btn btn-warning">Thêm vào giỏ hàng</button>
+                            </div>
+                            <a href="#" class="fast-order btn btn-warning">
+                                <div style="width: 300px;">
+                                    <h4 class="text-white">Đặt hàng nhanh</h4>
+                                    <span class="text-white">Điền thông tin ngắn gọn</span>
+                                </div>
+                            </a>
                         </div>
                     </div>
+                </div>
 
+            </div>
+            <div>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-toggle="tab" href="#home">Mô tả sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1">Thông tin bổ sung</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu2">Đánh giá sản phẩm</a>
+                    </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div id="home" class="container tab-pane active"><br>
+                        <h3>HOME</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade"><br>
+                        <h3>Menu 1</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div id="menu2" class="container tab-pane fade"><br>
+                        <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="5"></div>
+                    </div>
                 </div>
             </div>
+        </div>
         <jsp:include page="Footer.jsp"></jsp:include>
     </body>
 </html>

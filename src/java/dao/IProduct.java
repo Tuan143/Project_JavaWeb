@@ -41,5 +41,14 @@ public interface IProduct {
      * @return
      */
     int countTotalProductByCategoryId(int categoryId);
-
+    
+    /**
+     * 
+     * 
+     * 
+     */
+ 
+    ArrayList<Product> searchProduct(String textSearch, int categoryId, int pageIndex, int pageSize );
+    
+    int countTotalProductByTextSearchAndCategoryId(String textSearch, int categoryId);
 }

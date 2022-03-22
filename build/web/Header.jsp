@@ -31,8 +31,10 @@
                     </li>    
                 </ul>
             </div>
-            <form class="form-inline" action="/action_page.php">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <form class="form-inline" action="search" method="post">
+                <input class="form-control mr-sm-2" value="" name="txtSearch" type="text" placeholder="Search">
+                <input name="categoryId" type="text" value="${categoryId}" hidden>
+                <input name="pageIndex" type="text" value="${pageIndex}" hidden>
                 <button class="btn btn-secondary" type="submit">Search</button>
             </form>
             <c:if test="${accountLogin == null}">

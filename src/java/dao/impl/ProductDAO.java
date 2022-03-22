@@ -178,4 +178,95 @@ public class ProductDAO extends MSSQLConnection implements IProduct {
         }
         return count;
     }
+
+    @Override
+    public ArrayList<Product> searchProduct(String textSearch, int categoryId, int pageIndex, int pageSize) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        ArrayList<Product> listProductSearch = new ArrayList<>();
+
+        String sql = "";
+
+        if (categoryId == 0) {
+            sql = "select * FROM (\n"
+                    + "    select ROW_NUMBER() over (order by id ASC) as rn, *\n"
+                    + "    from Product WHERE Name Like ?\n"
+                    + ") as x\n"
+                    + "where rn between (?-1)*? +1 "
+                    + "and ? * ?";
+        } else {
+            sql = "SELECT * FROM(SELECT ROW_NUMBER() over (ORDER BY id ASC) as rn, *"
+                    + " from Product"
+                    + " WHERE Name like ? AND CategoryId = '" + categoryId + "')"
+                    + " as x WHERE rn BETWEEN (?-1)*? +1 AND ? * ?";
+        }
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, "%" + textSearch + "%");
+            ps.setInt(2, pageIndex);
+            ps.setInt(3, pageSize);
+            ps.setInt(4, pageIndex);
+            ps.setInt(5, pageSize);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Product product = new Product();
+
+                product.setId(rs.getInt("id"));
+                product.setName(rs.getString("Name"));
+                product.setPrice(rs.getInt("Price"));
+                product.setQuantity(rs.getInt("Quantity"));
+                product.setCategoryId(rs.getInt("CategoryId"));
+                product.setStatus(rs.getString("Status"));
+                product.setImageLink(rs.getString("ImageLink"));
+                product.setDescription(rs.getString("Description"));
+                product.setNote(rs.getString("Note"));
+
+                listProductSearch.add(product);
+            }
+
+            return listProductSearch;
+        } catch (Exception e) {
+
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(connection);
+        }
+        return listProductSearch;
+    }
+
+    @Override
+    public int countTotalProductByTextSearchAndCategoryId(String textSearch, int categoryId) {
+        Connection connection = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String sql = "";
+        if (categoryId == 0) {
+            sql = "SELECT COUNT(id) FROM Product WHERE Name LIKE ?";
+        } else {
+            sql = "SELECT COUNT(id) FROM Product WHERE Name LIKE ? AND CategoryId = '" + categoryId + "'";
+        }
+        int count = 0;
+        try {
+            connection = getConnection();
+            ps = connection.prepareStatement(sql);
+            ps.setString(1,"%" + textSearch + "%");
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                count = rs.getInt(1); // count++
+            }
+        } catch (Exception e) {
+            // throw e;
+        } finally {
+            closeResultSet(rs);
+            closePreparedStatement(ps);
+            closeConnection(connection);
+        }
+        return count;
+    }
 }

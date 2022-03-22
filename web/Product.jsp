@@ -44,7 +44,7 @@
                                 <div class="card-body" style="height: 200px">
                                     <p class="card-title">${product.name}</p>
                                     <p class="card-text" >${product.price}</p>
-                                    <a href="#" class="btn btn-primary">Chi tiết sản phẩm</a>
+                                    <a href="detail-product.jsp" class="btn btn-primary">Chi tiết sản phẩm</a>
                                 </div>
                             </div>
                         </div>
@@ -59,33 +59,42 @@
 
                         <!--Button back page-->
                         <li class="page-item ${pageIndex == 1 ? "d-none" : ""}">
-                            <c:if test="${categoryId > 0}">
+                            <c:if test="${categoryId > 0 && textSearch == null}">
                                 <a class="page-link active" href="category?pageIndex=${backPage}&categoryId=${categoryId}"><--</a>
                             </c:if>
-                            <c:if test="${categoryId == 0}">
+                            <c:if test="${categoryId > 0 && textSearch == null}">
                                 <a class="page-link" href="product?pageIndex=${backPage}"><--</a>
+                            </c:if>
+                            <c:if test="${textSearch != null}">
+                                <a class="page-link" href="search?pageIndex=${backPage}&txtSearch=${textSearch}&categoryId=${categoryId}"><--</a>
                             </c:if>
                         </li>
 
                         <!--page number-->
                         <c:forEach begin="1" end="${maxPage}" step="1" var="pageNumber">
                             <li class="page-item ${pageNumber == pageIndex ? "active e-none" : ""}">
-                                <c:if test="${categoryId > 0}">
+                                <c:if test="${categoryId > 0 && textSearch == null}">
                                     <a class="page-link active" href="category?pageIndex=${pageNumber}&categoryId=${categoryId}">${pageNumber}</a>
                                 </c:if>
-                                <c:if test="${categoryId == 0}">
+                                <c:if test="${categoryId == 0 && textSearch == null}">
                                     <a class="page-link active" href="product?pageIndex=${pageNumber}">${pageNumber}</a>
+                                </c:if>
+                                <c:if test="${textSearch != null}">
+                                    <a class="page-link" href="search?pageIndex=${pageNumber}&txtSearch=${textSearch}&categoryId=${categoryId}">${pageNumber}</a>
                                 </c:if>
                             </li>
                         </c:forEach>
 
                         <!--Button next page-->
                         <li class="page-item ${pageIndex == maxPage ? "d-none" : "" }">
-                            <c:if test="${categoryId > 0}">
+                            <c:if test="${categoryId > 0 && textSearch == null}">
                                 <a class="page-link active" href="category?pageIndex=${nextPage}&categoryId=${categoryId}">--></a>
                             </c:if>
-                            <c:if test="${categoryId == 0}">
+                            <c:if test="${categoryId == 0 && textSearch == null}">
                                 <a class="page-link" href="product?pageIndex=${nextPage}">--></a>
+                            </c:if>
+                            <c:if test="${textSearch != null}">
+                                <a class="page-link" href="search?pageIndex=${nextPage}&txtSearch=${textSearch}&categoryId=${categoryId}">--></a>
                             </c:if>
                         </li>
                     </ul>
